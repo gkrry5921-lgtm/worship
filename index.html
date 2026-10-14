@@ -261,26 +261,17 @@ tr:hover td{background:#fbfdff}
 .mobileMeetingHero{display:none}
 @media (max-width:720px){
   .mobileHide{display:none!important}
-
   .app{padding:10px!important}
-  .header{margin-bottom:10px!important}
-  .title h1{font-size:22px!important}
   .title p{display:none!important}
-  .logo{font-size:12px!important}
 
   .controls{
     display:grid!important;
     grid-template-columns:1fr 1fr!important;
     gap:8px!important;
     padding:10px!important;
-    margin-bottom:10px!important;
   }
   #meetingSelect,#search{grid-column:1/-1!important;width:100%!important}
   #platoonFilter,#unitFilter{width:100%!important;min-width:0!important}
-  .controls select,.controls input{
-    min-height:44px!important;
-    font-size:15px!important;
-  }
   .spacer{display:none!important}
 
   .mobileMeetingHero{
@@ -290,113 +281,159 @@ tr:hover td{background:#fbfdff}
     border:1px solid #d8e1e8;
     border-radius:12px;
     padding:15px 10px 13px;
-    margin-bottom:10px;
+    margin:10px 0;
   }
-  .mobileMeetingTitle{
-    font-size:20px;
-    font-weight:900;
-    line-height:1.3;
-    color:#176044;
-  }
-  .mobileMeetingDate{
-    margin-top:4px;
-    font-size:14px;
-    font-weight:700;
-    color:#516072;
-  }
-  .mobileMeetingSlogan{
-    margin-top:9px;
-    font-size:15px;
-    font-weight:900;
-    color:#17365f;
-  }
+  .mobileMeetingTitle{font-size:20px;font-weight:900;color:#176044}
+  .mobileMeetingDate{margin-top:4px;font-size:14px;font-weight:700;color:#516072}
+  .mobileMeetingSlogan{margin-top:9px;font-size:15px;font-weight:900;color:#17365f}
 
   .summaryHead{display:none!important}
-  .summary{padding:10px!important}
-  .kpis{grid-template-columns:repeat(2,1fr)!important;gap:8px!important}
+  .kpis{grid-template-columns:repeat(2,1fr)!important}
   .kpi:first-child{grid-column:1/-1!important}
-  .kpi{min-height:74px!important;padding:10px!important}
-  .kpi .num{font-size:26px!important}
 
   .grid{display:block!important}
-  .leftPanel,.reportPanel{
-    width:100%!important;
-    position:static!important;
-    margin-bottom:10px!important;
-  }
+  .leftPanel,.reportPanel{width:100%!important;position:static!important}
   .sectionHead span{display:none!important}
 
-  .leftPanel .tableWrap{
-    overflow:visible!important;
-    max-height:none!important;
-    border:0!important;
-    background:transparent!important;
-  }
-  #attendanceTable:not(.annualTable){
-    display:block!important;
-    width:100%!important;
-  }
+  .leftPanel .tableWrap{overflow:visible!important;max-height:none!important;border:0!important}
+  #attendanceTable:not(.annualTable){display:block!important}
   #attendanceTable:not(.annualTable) thead{display:none!important}
   #attendanceTable:not(.annualTable) tbody{display:block!important}
   #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider){
     display:grid!important;
     grid-template-columns:repeat(3,1fr)!important;
     gap:7px!important;
-    margin:0 0 9px!important;
     padding:11px!important;
+    margin-bottom:9px!important;
     background:#fff!important;
     border:1px solid #dfe5eb!important;
     border-radius:10px!important;
   }
   #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td{
-    border:0!important;
-    padding:0!important;
-    background:transparent!important;
+    border:0!important;padding:0!important;background:transparent!important;
   }
-  #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(-n+4){
-    grid-column:1/-1!important;
-  }
-  #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(1),
-  #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(2),
-  #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(3){
-    font-size:11px!important;
-    color:#6e7985!important;
-  }
+  #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(-n+4){grid-column:1/-1!important}
   #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(4){
-    font-size:17px!important;
-    font-weight:900!important;
-    color:#17365f!important;
-    margin-bottom:3px!important;
+    font-size:17px!important;font-weight:900!important;color:#17365f!important;
   }
   #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(5),
   #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(6),
   #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(7){
-    min-height:44px!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    border-radius:8px!important;
-    font-size:16px!important;
-    font-weight:900!important;
+    min-height:44px!important;display:flex!important;align-items:center!important;
+    justify-content:center!important;border-radius:8px!important;font-size:16px!important;font-weight:900!important;
   }
-  #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(8){
-    grid-column:1/-1!important;
-    margin-top:2px!important;
-  }
+  #attendanceTable:not(.annualTable) tbody tr:not(.platoonDivider) td:nth-child(8){grid-column:1/-1!important}
   .reasonInput{width:100%!important;min-height:40px!important}
 
-  .platoonDivider{display:block!important;margin:10px 0 7px!important}
-  .platoonDivider td{
-    display:block!important;
-    width:100%!important;
-    border-radius:8px!important;
+  .reportPanel .tableWrap,.leftPanel:has(#attendanceTable.annualTable) .tableWrap{overflow-x:auto!important;max-height:none!important}
+  #attendanceTable.annualTable{min-width:720px!important}
+  #exceptionTable{min-width:650px!important}
+}
+
+
+@media (max-width:720px){
+  /* Restore original table layout on mobile */
+  .leftPanel .tableWrap,
+  .reportPanel .tableWrap{
+    overflow-x:auto !important;
+    overflow-y:visible !important;
+    max-height:none !important;
+    border:1px solid #dfe5eb !important;
+    background:#fff !important;
   }
 
-  .reportPanel .tableWrap{overflow-x:auto!important;max-height:none!important}
-  #exceptionTable{min-width:650px!important;font-size:11px!important}
+  #attendanceTable,
+  #attendanceTable.annualTable,
+  #exceptionTable{
+    display:table !important;
+    width:100% !important;
+    min-width:760px !important;
+    table-layout:auto !important;
+  }
 
-  .leftPanel:has(#attendanceTable.annualTable) .tableWrap{overflow-x:auto!important}
-  #attendanceTable.annualTable{min-width:720px!important}
+  #attendanceTable thead,
+  #attendanceTable.annualTable thead{
+    display:table-header-group !important;
+  }
+
+  #attendanceTable tbody,
+  #attendanceTable.annualTable tbody{
+    display:table-row-group !important;
+  }
+
+  #attendanceTable tbody tr,
+  #attendanceTable.annualTable tbody tr,
+  #attendanceTable tbody tr:not(.platoonDivider),
+  #exceptionTable tbody tr{
+    display:table-row !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    background:transparent !important;
+  }
+
+  #attendanceTable tbody td,
+  #attendanceTable.annualTable tbody td,
+  #attendanceTable tbody tr:not(.platoonDivider) td,
+  #exceptionTable tbody td{
+    display:table-cell !important;
+    grid-column:auto !important;
+    min-height:0 !important;
+    padding:8px 7px !important;
+    border:1px solid #e1e5ea !important;
+    border-radius:0 !important;
+    background:inherit !important;
+    font-size:12px !important;
+    line-height:1.25 !important;
+    vertical-align:middle !important;
+  }
+
+  #attendanceTable tbody td:nth-child(4){
+    font-size:12px !important;
+    font-weight:800 !important;
+    color:inherit !important;
+    margin:0 !important;
+  }
+
+  #attendanceTable tbody td:nth-child(5),
+  #attendanceTable tbody td:nth-child(6),
+  #attendanceTable tbody td:nth-child(7){
+    display:table-cell !important;
+    min-height:0 !important;
+    font-size:12px !important;
+    font-weight:800 !important;
+    text-align:center !important;
+  }
+
+  #attendanceTable tbody td::before{
+    content:none !important;
+  }
+
+  .reasonInput{
+    width:100% !important;
+    min-width:140px !important;
+    height:34px !important;
+    min-height:34px !important;
+    font-size:12px !important;
+  }
+
+  .platoonDivider{
+    display:table-row !important;
+    margin:0 !important;
+  }
+  .platoonDivider td{
+    display:table-cell !important;
+    width:auto !important;
+    padding:8px 10px !important;
+    border-radius:0 !important;
+  }
+
+  #exceptionTable{
+    min-width:700px !important;
+    font-size:12px !important;
+  }
 }
 
 </style>
@@ -417,8 +454,8 @@ tr:hover td{background:#fbfdff}
     <select id="unitFilter"><option value="">전체 분대</option></select>
     <input id="search" class="search" placeholder="이름 검색">
     <div class="spacer"></div>
-    <button class="btn soft mobileHide" id="resetBtn">엑셀 원본으로 초기화</button>
-    <button class="btn mobileHide" id="saveJsonBtn">백업</button>
+    <button class="mobileHide btn soft" id="resetBtn">엑셀 원본으로 초기화</button>
+    <button class="mobileHide btn" id="saveJsonBtn">백업</button>
     <label class="btn mobileHide" style="display:flex;align-items:center">복원<input id="restoreJson" type="file" accept="application/json" hidden></label>
     <button class="btn primary mobileHide" onclick="window.print()">보고서 인쇄</button>
   </div>
@@ -551,17 +588,27 @@ function setup(){
   ms.innerHTML=`<option value="__ALL__" ${current==='__ALL__'?'selected':''}>전체 (연간 통계)</option>`+
     Object.keys(db).map(k=>{
       const dt=meetingDates[k];
-      const label=dt ? `${k} · ${formatDateLabel(dt)}` : k;
+      const label=dt ? `${k}(${formatDateLabel(dt)})` : k;
       return `<option value="${esc(k)}" ${k===current?'selected':''}>${esc(label)}</option>`;
     }).join('');
 
   ms.onchange=()=>{
     current=ms.value;
+
+    // 전체(연간 통계)로 들어갈 때 이전 모임의 소대/분대 필터가
+    // 남아서 검색 결과를 막지 않도록 자동 초기화
+    if(current==='__ALL__'){
+      document.getElementById('platoonFilter').value='';
+      document.getElementById('unitFilter').value='';
+    }
+
     buildUnitFilter();
     render();
   };
 
-  document.getElementById('search').oninput=render;
+  const searchEl=document.getElementById('search');
+  searchEl.oninput=render;
+  searchEl.onkeyup=render;
   document.getElementById('unitFilter').onchange=render;
   document.getElementById('platoonFilter').onchange=()=>{
     buildUnitFilter();
@@ -636,19 +683,45 @@ function statusCell(r,idx,key){
 
 
 function uniquePeopleAnnual(){
-  const map=new Map();
+  const people=new Map();
 
   Object.entries(db).forEach(([meeting,rows])=>{
+    const perMeeting=new Map();
+
     rows.filter(r=>!isImportedHeaderRow(r)).forEach(r=>{
       const cleanName=String(r.name||'').replace(/\s+/g,'').trim();
       if(!cleanName) return;
 
-      if(!map.has(cleanName)){
-        map.set(cleanName,{
+      if(!perMeeting.has(cleanName)){
+        perMeeting.set(cleanName,{
           name:r.name,
           unit:r.unit,
           role:r.role,
           platoon:platoonOfRow(r),
+          prayer:false,
+          worship:false,
+          lecture:false,
+          reasons:[]
+        });
+      }
+
+      const m=perMeeting.get(cleanName);
+      if(platoonOfRow(r)) m.platoon=platoonOfRow(r);
+      if(!m.unit && r.unit) m.unit=r.unit;
+      if(!m.role && r.role) m.role=r.role;
+      if(r.prayer==='O') m.prayer=true;
+      if(r.worship==='O') m.worship=true;
+      if(r.lecture==='O') m.lecture=true;
+      if(r.reason) m.reasons.push(r.reason);
+    });
+
+    perMeeting.forEach((m,cleanName)=>{
+      if(!people.has(cleanName)){
+        people.set(cleanName,{
+          name:m.name,
+          unit:m.unit,
+          role:m.role,
+          platoon:m.platoon,
           meetings:0,
           prayer:0,
           worship:0,
@@ -657,23 +730,28 @@ function uniquePeopleAnnual(){
         });
       }
 
-      const p=map.get(cleanName);
-      const forced=platoonOfRow(r);
-      if(forced) p.platoon=forced;
-      if(!p.unit && r.unit) p.unit=r.unit;
-      if(!p.role && r.role) p.role=r.role;
+      const p=people.get(cleanName);
+      if(m.platoon) p.platoon=m.platoon;
+      if(!p.unit && m.unit) p.unit=m.unit;
+      if(!p.role && m.role) p.role=m.role;
 
-      const attended=r.prayer==='O'||r.worship==='O'||r.lecture==='O';
+      const attended=m.prayer||m.worship||m.lecture;
       if(attended) p.meetings++;
-      if(r.prayer==='O') p.prayer++;
-      if(r.worship==='O') p.worship++;
-      if(r.lecture==='O') p.lecture++;
+      if(m.prayer) p.prayer++;
+      if(m.worship) p.worship++;
+      if(m.lecture) p.lecture++;
 
-      p.records.push({meeting,...r});
+      p.records.push({
+        meeting,
+        prayer:m.prayer?'O':'X',
+        worship:m.worship?'O':'X',
+        lecture:m.lecture?'O':'X',
+        reason:[...new Set(m.reasons)].join(', ')
+      });
     });
   });
 
-  return [...map.values()];
+  return [...people.values()];
 }
 
 function renderAnnual(){
@@ -684,7 +762,10 @@ function renderAnnual(){
 
   const filtered=people.filter(p=>{
     const hay=`${p.name} ${p.unit} ${p.role} ${p.platoon}`.toLowerCase();
-    return (!pf||p.platoon===pf) && (!uf||p.unit===uf) && (!q||hay.includes(q));
+    const matchesSearch=!q || hay.includes(q);
+    const matchesPlatoon=!pf || p.platoon===pf;
+    const matchesUnit=!uf || p.unit===uf;
+    return matchesSearch && matchesPlatoon && matchesUnit;
   });
 
   const meetingCount=Object.keys(db).length;
@@ -697,7 +778,7 @@ function renderAnnual(){
   labels[3].textContent='예배';
   labels[4].textContent='강의';
 
-  document.getElementById('totalNum').textContent=Math.max(0, all.length - 1);
+  document.getElementById('totalNum').textContent=meetingCount;
   document.getElementById('absentNum').textContent=filtered.length;
   document.getElementById('prayerNum').textContent=filtered.reduce((s,p)=>s+p.prayer,0);
   document.getElementById('worshipNum').textContent=filtered.reduce((s,p)=>s+p.worship,0);
@@ -767,78 +848,106 @@ function updateMobileMeetingHero(){
 }
 
 function render(){
-  updateMobileMeetingHero();
-  // 기본 KPI 라벨 복원
+  if(typeof updateMobileMeetingHero==='function') updateMobileMeetingHero();
+
   const labels=document.querySelectorAll('.kpi .label');
-  labels[0].textContent='총원'; labels[1].textContent='결석자';
-  labels[2].textContent='중보기도'; labels[3].textContent='예배'; labels[4].textContent='강의';
+  labels[0].textContent='총원';
+  labels[1].textContent='결석자';
+  labels[2].textContent='중보기도';
+  labels[3].textContent='예배';
+  labels[4].textContent='강의';
 
   if(current==='__ALL__'){
     renderAnnual();
     return;
   }
 
-  document.getElementById('attendanceTable').classList.remove('annualTable');
-  document.getElementById('attendanceTable').querySelector('thead').innerHTML='<tr><th>소대</th><th>분대</th><th>직책</th><th>이름</th><th>중보</th><th>예배</th><th>강의</th><th>사유</th></tr>';
-  document.getElementById('exceptionTable').querySelector('thead').innerHTML='<tr><th>소대</th><th>분대</th><th>이름</th><th>중보</th><th>예배</th><th>강의</th><th>사유</th></tr>';
+  const attendanceTable=document.getElementById('attendanceTable');
+  const exceptionTable=document.getElementById('exceptionTable');
+  attendanceTable.classList.remove('annualTable');
+
+  attendanceTable.querySelector('thead').innerHTML='<tr><th>소대</th><th>분대</th><th>직책</th><th>이름</th><th>중보</th><th>예배</th><th>강의</th><th>사유</th></tr>';
+  exceptionTable.querySelector('thead').innerHTML='<tr><th>소대</th><th>분대</th><th>이름</th><th>중보</th><th>예배</th><th>강의</th><th>사유</th></tr>';
+
   document.querySelector('.leftPanel .sectionHead h3').textContent='전체 명단 · 출석 입력';
   document.querySelector('.leftPanel .sectionHead span').textContent='O / X 칸을 클릭하면 변경됩니다.';
   document.querySelector('.reportPanel .sectionHead h3').textContent='출결 특이사항';
   document.querySelector('.reportPanel .sectionHead span').textContent='결석 · 부분참여 · 사유 자동 추출';
 
-  const all=(db[current]||[]).filter(r=>!isImportedHeaderRow(r));
-  const dateLabel=meetingDates[current]?` · ${formatDateLabel(meetingDates[current])}`:'';
+  const source=db[current]||[];
+  const entries=source.map((r,i)=>({r,i})).filter(x=>!isImportedHeaderRow(x.r));
+  const all=entries.map(x=>x.r);
+
+  const dateLabel=meetingDates[current]?`(${formatDateLabel(meetingDates[current])})`:'';
   document.getElementById('summaryTitle').textContent=`${current}${dateLabel} 전체 출결 현황`;
-  // 성정우가 1소대/5분대에 중복 등록되어 있어 상단 통계는 각 항목에서 1명 차감
-  const DUPLICATE_ADJUSTMENT = 1;
-  // 성정우가 명단에 2번 들어가므로 총원은 중복 1명 차감
-  document.getElementById('totalNum').textContent=Math.max(0, all.length - 1);
+
+  const DUPLICATE_ADJUSTMENT=1;
+  document.getElementById('totalNum').textContent=Math.max(0,all.length-DUPLICATE_ADJUSTMENT);
   document.getElementById('absentNum').textContent=Math.max(0,all.filter(isAllX).length-DUPLICATE_ADJUSTMENT);
   document.getElementById('prayerNum').textContent=Math.max(0,all.filter(r=>r.prayer==='O').length-DUPLICATE_ADJUSTMENT);
   document.getElementById('worshipNum').textContent=Math.max(0,all.filter(r=>r.worship==='O').length-DUPLICATE_ADJUSTMENT);
   document.getElementById('lectureNum').textContent=Math.max(0,all.filter(r=>r.lecture==='O').length-DUPLICATE_ADJUSTMENT);
 
-  const rows=filteredRows().filter(r=>!isImportedHeaderRow(r));
-  const tbody=document.querySelector('#attendanceTable tbody');
-  let seenTwo=false;
-  tbody.innerHTML=rows.map(r=>{
-    const idx=all.indexOf(r);
+  const q=document.getElementById('search').value.trim().toLowerCase();
+  const uf=document.getElementById('unitFilter').value;
+  const pf=document.getElementById('platoonFilter').value;
+
+  const visible=entries.filter(({r})=>
+    (!pf||platoonOfRow(r)===pf) &&
+    (!uf||r.unit===uf) &&
+    (!q||`${r.name} ${r.unit} ${r.role} ${r.reason}`.toLowerCase().includes(q))
+  );
+
+  const tbody=attendanceTable.querySelector('tbody');
+  let section='';
+  tbody.innerHTML=visible.map(({r,i})=>{
     const platoon=platoonOfRow(r);
     let divider='';
-    if(platoon==='2소대' && !seenTwo){
-      seenTwo=true;
-      divider='<tr class="platoonDivider"><td colspan="8">2소대</td></tr>';
+    if(platoon && platoon!==section){
+      section=platoon;
+      divider=`<tr class="platoonDivider"><td colspan="8">${esc(platoon)}</td></tr>`;
     }
+
     return `${divider}<tr>
       <td class="unit ${platoon==='사령부'?'hqTag':''}">${esc(platoon)}</td>
-      <td class="unit">${esc(r.unit)}</td><td class="role">${esc(r.role)}</td><td class="name">${esc(r.name)}</td>
-      ${statusCell(r,idx,'prayer')}${statusCell(r,idx,'worship')}${statusCell(r,idx,'lecture')}
-      <td><input class="reasonInput" data-i="${idx}" value="${esc(r.reason)}"></td>
+      <td class="unit">${esc(r.unit)}</td>
+      <td class="role">${esc(r.role)}</td>
+      <td class="name">${esc(r.name)}</td>
+      ${statusCell(r,i,'prayer')}${statusCell(r,i,'worship')}${statusCell(r,i,'lecture')}
+      <td><input class="reasonInput" data-i="${i}" value="${esc(r.reason)}"></td>
     </tr>`;
   }).join('');
 
   tbody.querySelectorAll('.status').forEach(td=>td.onclick=()=>{
-    const i=+td.dataset.i,key=td.dataset.key;
-    db[current][i][key]=cycleStatus(db[current][i][key]||'O');persist();render();
-  });
-  tbody.querySelectorAll('.reasonInput').forEach(inp=>inp.onchange=()=>{
-    db[current][+inp.dataset.i].reason=inp.value;persist();render();
+    const i=Number(td.dataset.i);
+    const key=td.dataset.key;
+    db[current][i][key]=cycleStatus(db[current][i][key]||'O');
+    persist();
+    render();
   });
 
-  const ex=all.filter(isException);
-  const et=document.querySelector('#exceptionTable tbody');
-  if(ex.length){
-    let seenTwoEx=false;
-    et.innerHTML=ex.map(r=>{
+  tbody.querySelectorAll('.reasonInput').forEach(inp=>inp.onchange=()=>{
+    const i=Number(inp.dataset.i);
+    db[current][i].reason=inp.value;
+    persist();
+    render();
+  });
+
+  const exceptions=entries.filter(({r})=>isException(r));
+  const eb=exceptionTable.querySelector('tbody');
+  if(exceptions.length){
+    let exSection='';
+    eb.innerHTML=exceptions.map(({r})=>{
       const platoon=platoonOfRow(r);
       let divider='';
-      if(platoon==='2소대' && !seenTwoEx){
-        seenTwoEx=true;
-        divider='<tr class="platoonDivider"><td colspan="7">2소대</td></tr>';
+      if(platoon && platoon!==exSection){
+        exSection=platoon;
+        divider=`<tr class="platoonDivider"><td colspan="7">${esc(platoon)}</td></tr>`;
       }
       return `${divider}<tr class="exception">
         <td class="unit ${platoon==='사령부'?'hqTag':''}">${esc(platoon)}</td>
-        <td class="unit">${esc(r.unit)}</td><td class="name">${esc(r.name)}</td>
+        <td class="unit">${esc(r.unit)}</td>
+        <td class="name">${esc(r.name)}</td>
         <td class="status ${statusClass(r,'prayer')}">${esc(r.prayer)}</td>
         <td class="status ${statusClass(r,'worship')}">${esc(r.worship)}</td>
         <td class="status ${statusClass(r,'lecture')}">${esc(r.lecture)}</td>
@@ -846,7 +955,7 @@ function render(){
       </tr>`;
     }).join('');
   }else{
-    et.innerHTML='<tr><td colspan="7" class="empty">특이사항 대상자가 없습니다.</td></tr>';
+    eb.innerHTML='<tr><td colspan="7" class="empty">특이사항 대상자가 없습니다.</td></tr>';
   }
 }
 
