@@ -795,6 +795,9 @@ input[type="file"]{
 
 
 /* ===== PRINT: EXCEPTIONS ONLY / ONE PAGE ===== */
+
+
+/* ===== PRINT: SUMMARY + EXCEPTIONS ONLY ===== */
 @page{
   size:A4 portrait;
   margin:10mm;
@@ -825,9 +828,8 @@ input[type="file"]{
     padding:0 !important;
   }
 
-  /* Hide search/filter/summary/full roster and editing controls */
+  /* Hide search/filter/full roster/editing controls */
   .controls,
-  .summary,
   .leftPanel,
   #resetBtn,
   #restoreJsonBtn,
@@ -841,7 +843,7 @@ input[type="file"]{
   .header{
     display:block !important;
     width:100% !important;
-    margin:0 0 5mm 0 !important;
+    margin:0 0 4mm 0 !important;
     padding:0 !important;
     border:0 !important;
     box-shadow:none !important;
@@ -859,6 +861,55 @@ input[type="file"]{
     margin:0 !important;
     font-size:8pt !important;
     color:#555 !important;
+  }
+
+  /* Show attendance summary */
+  .summary{
+    display:block !important;
+    width:100% !important;
+    margin:0 0 4mm 0 !important;
+    padding:3mm !important;
+    box-sizing:border-box !important;
+    box-shadow:none !important;
+    page-break-inside:avoid !important;
+  }
+
+  .summaryHead{
+    margin-bottom:2mm !important;
+  }
+
+  .summaryHead h2{
+    font-size:11pt !important;
+    margin:0 !important;
+  }
+
+  .summaryHead .badge{
+    font-size:7pt !important;
+    padding:1mm 2mm !important;
+  }
+
+  .kpis{
+    display:grid !important;
+    grid-template-columns:repeat(5,1fr) !important;
+    gap:2mm !important;
+  }
+
+  .kpi{
+    min-height:0 !important;
+    padding:2mm 1mm !important;
+  }
+
+  .kpi .label{
+    font-size:7pt !important;
+  }
+
+  .kpi .num{
+    font-size:15pt !important;
+    line-height:1 !important;
+  }
+
+  .kpi .unit{
+    font-size:7pt !important;
   }
 
   .grid{
@@ -927,8 +978,8 @@ input[type="file"]{
   #exceptionTable th,
   #exceptionTable td{
     display:table-cell !important;
-    padding:1.2mm .8mm !important;
-    font-size:7pt !important;
+    padding:1.1mm .8mm !important;
+    font-size:6.8pt !important;
     line-height:1.05 !important;
     vertical-align:middle !important;
     white-space:normal !important;
@@ -939,7 +990,7 @@ input[type="file"]{
   }
 
   #exceptionTable th{
-    font-size:7pt !important;
+    font-size:6.8pt !important;
     font-weight:700 !important;
   }
 
@@ -972,13 +1023,13 @@ input[type="file"]{
     width:100% !important;
     min-width:0 !important;
     height:auto !important;
-    font-size:7pt !important;
+    font-size:6.8pt !important;
     color:#111 !important;
     box-shadow:none !important;
   }
 
   .platoonDivider td{
-    font-size:7.3pt !important;
+    font-size:7pt !important;
     font-weight:700 !important;
     padding:1mm 1.2mm !important;
   }
