@@ -64,16 +64,7 @@ tr:hover td{background:#fbfdff}
 .search{width:180px}
 
 
-@media print{
-  body{background:white}
-  .controls,.tabs,.leftPanel{display:none!important}
-  .app{max-width:none;padding:0}
-  .grid{display:block}
-  .reportPanel{position:static}
-  .panel{border:0;box-shadow:none}
-  .header{margin:0 0 10px}
-  .reportPanel .sectionHead{border-radius:0}
-}
+
 
 .platoonDivider td{
   background:#17365f !important;
@@ -88,155 +79,7 @@ tr:hover td{background:#fbfdff}
   size:A4 portrait;
   margin:10mm;
 }
-@media print{
-  html,body{
-    width:210mm;
-    height:297mm;
-    background:#fff !important;
-    color:#111 !important;
-    -webkit-print-color-adjust:exact;
-    print-color-adjust:exact;
-  }
-  body{
-    margin:0 !important;
-    font-size:10px !important;
-  }
-  .app{
-    max-width:none !important;
-    width:auto !important;
-    padding:0 !important;
-    margin:0 !important;
-  }
 
-  /* Keep only the title, summary cards, and exception report */
-  .controls,
-  .leftPanel,
-  .tabs,
-  .title p{
-    display:none !important;
-  }
-
-  .header{
-    margin:0 0 6mm !important;
-    display:flex !important;
-    align-items:flex-start !important;
-    justify-content:space-between !important;
-    page-break-after:avoid !important;
-  }
-  .title h1{
-    font-size:18px !important;
-    margin:0 !important;
-  }
-  .logo{
-    font-size:14px !important;
-  }
-
-  .summary{
-    margin:0 0 5mm !important;
-    padding:4mm !important;
-    border:1px solid #cfd7df !important;
-    box-shadow:none !important;
-    page-break-inside:avoid !important;
-  }
-  .summaryHead{
-    margin-bottom:3mm !important;
-  }
-  .summaryHead h2{
-    font-size:14px !important;
-  }
-  .badge{
-    font-size:9px !important;
-    padding:3px 6px !important;
-  }
-  .kpis{
-    grid-template-columns:repeat(5,1fr) !important;
-    gap:2.5mm !important;
-  }
-  .kpi{
-    padding:3mm 2mm !important;
-    border-radius:5px !important;
-    min-height:0 !important;
-  }
-  .kpi .label{
-    font-size:9px !important;
-    margin-bottom:1mm !important;
-  }
-  .kpi .num{
-    font-size:22px !important;
-  }
-  .kpi .unit{
-    font-size:10px !important;
-  }
-
-  .grid{
-    display:block !important;
-  }
-  .reportPanel{
-    display:block !important;
-    position:static !important;
-    margin:0 !important;
-    padding:0 !important;
-    border:1px solid #cfd7df !important;
-    box-shadow:none !important;
-    page-break-inside:avoid !important;
-  }
-  .reportPanel .sectionHead{
-    border-radius:0 !important;
-    padding:3mm 4mm !important;
-  }
-  .reportPanel .sectionHead h3{
-    font-size:13px !important;
-  }
-  .reportPanel .sectionHead span{
-    display:none !important;
-  }
-
-  .reportPanel .tableWrap{
-    max-height:none !important;
-    overflow:visible !important;
-    border:0 !important;
-    border-radius:0 !important;
-  }
-  .reportPanel table{
-    width:100% !important;
-    table-layout:fixed !important;
-    font-size:9px !important;
-    border-collapse:collapse !important;
-  }
-  .reportPanel th,
-  .reportPanel td{
-    position:static !important;
-    padding:2.1mm 1.3mm !important;
-    line-height:1.15 !important;
-    border:1px solid #d5dbe1 !important;
-    word-break:keep-all !important;
-    overflow-wrap:anywhere !important;
-  }
-  .reportPanel th{
-    background:#eef3f7 !important;
-    color:#203852 !important;
-  }
-
-  .platoonDivider td{
-    padding:2mm 2mm !important;
-    font-size:9px !important;
-  }
-
-  /* Sensible widths for one-page report */
-  #exceptionTable th:nth-child(1), #exceptionTable td:nth-child(1){width:12%}
-  #exceptionTable th:nth-child(2), #exceptionTable td:nth-child(2){width:11%}
-  #exceptionTable th:nth-child(3), #exceptionTable td:nth-child(3){width:13%}
-  #exceptionTable th:nth-child(4), #exceptionTable td:nth-child(4),
-  #exceptionTable th:nth-child(5), #exceptionTable td:nth-child(5),
-  #exceptionTable th:nth-child(6), #exceptionTable td:nth-child(6){width:8%}
-  #exceptionTable th:nth-child(7), #exceptionTable td:nth-child(7){width:40%}
-
-  /* Avoid browser-generated extra blank pages where possible */
-  *{
-    page-break-before:auto !important;
-    page-break-after:auto !important;
-  }
-}
 
 
 .annualNote{font-size:11px;color:#6f7b88;margin-left:4px}
@@ -246,7 +89,6 @@ tr:hover td{background:#fbfdff}
 .annualDetailTitle{font-size:13px;font-weight:900;color:#17365f;margin:0 0 8px}
 
 
-.mobileMeetingHero{display:none}
 
 
 
@@ -254,82 +96,8 @@ tr:hover td{background:#fbfdff}
 
 
 
-
-
-
-
-
-
-
-@media (max-width:760px){
-  .mobileHide{display:none!important}
-
-  /* Preserve the desktop layout exactly on mobile */
-  body{
-    min-width:1380px !important;
-    overflow-x:auto !important;
-  }
-
-  .app{
-    width:1380px !important;
-    max-width:none !important;
-    min-width:1380px !important;
-    margin:0 auto !important;
-    padding:18px 20px !important;
-  }
-
-  .header,
-  .controls,
-  .summary,
-  .grid{
-    width:100% !important;
-  }
-
-  .grid{
-    display:grid !important;
-    grid-template-columns:minmax(0,1.55fr) minmax(430px,1fr) !important;
-    gap:16px !important;
-    align-items:start !important;
-  }
-
-  .leftPanel,
-  .reportPanel{
-    width:auto !important;
-    position:relative !important;
-  }
-
-  .leftPanel .tableWrap,
-  .reportPanel .tableWrap{
-    overflow:auto !important;
-    max-height:680px !important;
-  }
-
-  #attendanceTable,
-  #exceptionTable{
-    display:table !important;
-    width:100% !important;
-    min-width:0 !important;
-    table-layout:auto !important;
-  }
-
-  #attendanceTable thead,
-  #exceptionTable thead{display:table-header-group!important}
-  #attendanceTable tbody,
-  #exceptionTable tbody{display:table-row-group!important}
-  #attendanceTable tr,
-  #exceptionTable tr{display:table-row!important}
-  #attendanceTable th,
-  #attendanceTable td,
-  #exceptionTable th,
-  #exceptionTable td{
-    display:table-cell!important;
-    grid-column:auto!important;
-  }
-
-  .mobileMeetingHero{
-    display:none !important;
-  }
-}
+html,body{min-width:1180px;}
+body{overflow-x:auto;}
 </style>
 </head>
 <body>
@@ -348,32 +116,12 @@ tr:hover td{background:#fbfdff}
     <select id="unitFilter"><option value="">전체 분대</option></select>
     <input id="search" class="search" placeholder="이름 검색">
     <div class="spacer"></div>
-    <button class="mobileHide btn soft" id="resetBtn">엑셀 원본으로 초기화</button>
-    <button class="mobileHide btn" id="saveJsonBtn">백업</button>
-    <label class="btn mobileHide" style="display:flex;align-items:center">복원<input id="restoreJson" type="file" accept="application/json" hidden></label>
-    <button class="btn primary mobileHide" onclick="window.print()">보고서 인쇄</button>
+    <button class="btn soft" id="resetBtn">엑셀 원본으로 초기화</button>
+    <button class="btn" id="saveJsonBtn">백업</button>
+    <label class="btn" style="display:flex;align-items:center">복원<input id="restoreJson" type="file" accept="application/json" hidden></label>
+    <button class="btn primary" onclick="window.print()">보고서 인쇄</button>
   </div>
-
-  
-<div id="mobileMeetingHero" class="mobileMeetingHero">
-  <div id="mobileMeetingTitle" class="mobileMeetingTitle"></div>
-  <div id="mobileMeetingDate" class="mobileMeetingDate"></div>
-  <div class="mobileMeetingSlogan">거룩! 겸손! 연합!</div>
 </div>
-
-<div class="panel summary">
-    <div class="summaryHead">
-      <h2 id="summaryTitle">전체 출결 현황</h2>
-      <span class="badge">거룩! 겸손! 연합</span>
-    </div>
-    <div class="kpis">
-      <div class="kpi"><div class="label">총원</div><div><span class="num" id="totalNum">0</span><span class="unit">명</span></div></div>
-      <div class="kpi bad"><div class="label">결석자</div><div><span class="num" id="absentNum">0</span><span class="unit">명</span></div></div>
-      <div class="kpi"><div class="label">중보기도</div><div><span class="num" id="prayerNum">0</span><span class="unit">명</span></div></div>
-      <div class="kpi"><div class="label">예배</div><div><span class="num" id="worshipNum">0</span><span class="unit">명</span></div></div>
-      <div class="kpi"><div class="label">강의</div><div><span class="num" id="lectureNum">0</span><span class="unit">명</span></div></div>
-    </div>
-  </div>
 
   <div class="grid">
     <div class="leftPanel panel">
@@ -736,29 +484,10 @@ function renderAnnual(){
 }
 
 
-function updateMobileMeetingHero(){
-  const title=document.getElementById('mobileMeetingTitle');
-  const date=document.getElementById('mobileMeetingDate');
-  if(!title||!date) return;
 
-  if(current==='__ALL__'){
-    title.textContent='전체 연간 출결 통계';
-    date.textContent='';
-    return;
-  }
-
-  title.textContent=`${current} 출결 현황`;
-  const ds=meetingDates[current]||'';
-  if(ds){
-    const p=ds.split('-');
-    date.textContent=`(${Number(p[1])}월 ${Number(p[2])}일)`;
-  }else{
-    date.textContent='';
-  }
-}
 
 function render(){
-  if(typeof updateMobileMeetingHero==='function') updateMobileMeetingHero();
+  
 
   const labels=document.querySelectorAll('.kpi .label');
   labels[0].textContent='총원';
