@@ -550,6 +550,89 @@ body{overflow-x:auto;}
   }
 }
 
+@media (max-width:760px){
+  body::after{
+    content:"";
+    display:none;
+  }
+}
+
+
+/* ===== MOBILE HARD FIT V2 ===== */
+@media screen and (max-width:760px){
+  html,
+  body,
+  .app,
+  .pageShell,
+  .header,
+  .controls,
+  .summary,
+  .grid,
+  .panel,
+  .leftPanel,
+  .reportPanel,
+  .tableWrap{
+    min-width:0 !important;
+    max-width:100% !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+  }
+
+  .pageShell{
+    padding:8px !important;
+  }
+
+  .grid{
+    display:block !important;
+  }
+
+  .leftPanel,
+  .reportPanel{
+    display:block !important;
+    margin:0 0 10px 0 !important;
+  }
+
+  .tableWrap{
+    overflow-x:hidden !important;
+  }
+
+  #attendanceTable,
+  #attendanceTable.annualTable,
+  #exceptionTable{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    table-layout:fixed !important;
+  }
+
+  #attendanceTable col,
+  #exceptionTable col{
+    width:auto !important;
+  }
+
+  #attendanceTable th,
+  #attendanceTable td,
+  #exceptionTable th,
+  #exceptionTable td{
+    min-width:0 !important;
+    max-width:none !important;
+    padding:4px 1px !important;
+    font-size:8px !important;
+    white-space:normal !important;
+    word-break:break-word !important;
+    overflow-wrap:anywhere !important;
+  }
+
+  .reasonInput{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+    padding:2px !important;
+    font-size:8px !important;
+  }
+}
+
 </style>
 </head>
 <body>
