@@ -98,6 +98,93 @@ tr:hover td{background:#fbfdff}
 
 html,body{min-width:1180px;}
 body{overflow-x:auto;}
+
+
+/* ===== DESKTOP ALIGNMENT FIX ===== */
+@media (min-width: 761px){
+  html, body{
+    min-width:0 !important;
+    width:100% !important;
+    overflow-x:auto !important;
+  }
+
+  body{
+    background:#f4f6f8 !important;
+  }
+
+  .app{
+    width:calc(100% - 48px) !important;
+    max-width:1480px !important;
+    min-width:1180px !important;
+    margin:0 auto !important;
+    padding:18px 0 28px !important;
+  }
+
+  .header,
+  .controls,
+  .summary,
+  .grid{
+    width:100% !important;
+    box-sizing:border-box !important;
+  }
+
+  .header{
+    margin-bottom:14px !important;
+  }
+
+  .controls{
+    margin-bottom:14px !important;
+  }
+
+  .summary{
+    margin-bottom:14px !important;
+  }
+
+  .kpis{
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+
+  .grid{
+    display:grid !important;
+    grid-template-columns:minmax(0,1.65fr) minmax(430px,1fr) !important;
+    gap:14px !important;
+    align-items:start !important;
+  }
+
+  .leftPanel,
+  .reportPanel{
+    width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  .leftPanel .tableWrap,
+  .reportPanel .tableWrap{
+    width:100% !important;
+    box-sizing:border-box !important;
+    overflow:auto !important;
+    max-height:610px !important;
+  }
+
+  #attendanceTable,
+  #exceptionTable{
+    width:100% !important;
+    table-layout:auto !important;
+  }
+
+  #attendanceTable th,
+  #attendanceTable td,
+  #exceptionTable th,
+  #exceptionTable td{
+    white-space:nowrap !important;
+  }
+
+  #attendanceTable td:last-child,
+  #exceptionTable td:last-child{
+    white-space:normal !important;
+  }
+}
 </style>
 </head>
 <body>
