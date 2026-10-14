@@ -75,10 +75,7 @@ tr:hover td{background:#fbfdff}
 }
 .hqTag{color:#8a6b00;font-weight:900}
 
-@page{
-  size:A4 portrait;
-  margin:10mm;
-}
+
 
 
 
@@ -794,6 +791,197 @@ body{overflow-x:auto;}
 .controls label.btn,
 input[type="file"]{
   display:none !important;
+}
+
+
+/* ===== PRINT: EXCEPTIONS ONLY / ONE PAGE ===== */
+@page{
+  size:A4 portrait;
+  margin:10mm;
+}
+
+@media print{
+  html, body{
+    width:auto !important;
+    min-width:0 !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    background:#fff !important;
+    overflow:visible !important;
+  }
+
+  body{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+
+  .app,
+  .pageShell{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  /* Hide search/filter/summary/full roster and editing controls */
+  .controls,
+  .summary,
+  .leftPanel,
+  #resetBtn,
+  #restoreJsonBtn,
+  #saveJsonBtn,
+  .header .logo,
+  button,
+  input[type="file"]{
+    display:none !important;
+  }
+
+  .header{
+    display:block !important;
+    width:100% !important;
+    margin:0 0 5mm 0 !important;
+    padding:0 !important;
+    border:0 !important;
+    box-shadow:none !important;
+    background:#fff !important;
+  }
+
+  .title h1{
+    margin:0 0 1mm 0 !important;
+    font-size:17pt !important;
+    line-height:1.1 !important;
+    color:#111 !important;
+  }
+
+  .title p{
+    margin:0 !important;
+    font-size:8pt !important;
+    color:#555 !important;
+  }
+
+  .grid{
+    display:block !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .reportPanel{
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    box-shadow:none !important;
+    background:#fff !important;
+    page-break-inside:avoid !important;
+  }
+
+  .sectionHead{
+    padding:2.5mm 3mm !important;
+    margin:0 !important;
+    border-radius:0 !important;
+  }
+
+  .sectionHead h3{
+    margin:0 !important;
+    font-size:11pt !important;
+    line-height:1.1 !important;
+  }
+
+  .sectionHead span{
+    display:none !important;
+  }
+
+  .reportPanel .tableWrap,
+  .tableWrap{
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    max-height:none !important;
+    overflow:visible !important;
+    border:0 !important;
+  }
+
+  #exceptionTable{
+    display:table !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    table-layout:fixed !important;
+    border-collapse:collapse !important;
+  }
+
+  #exceptionTable thead{display:table-header-group !important;}
+  #exceptionTable tbody{display:table-row-group !important;}
+  #exceptionTable tr{
+    display:table-row !important;
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+
+  #exceptionTable th,
+  #exceptionTable td{
+    display:table-cell !important;
+    padding:1.2mm .8mm !important;
+    font-size:7pt !important;
+    line-height:1.05 !important;
+    vertical-align:middle !important;
+    white-space:normal !important;
+    word-break:keep-all !important;
+    overflow-wrap:anywhere !important;
+    border:.25mm solid #c8ced6 !important;
+    height:auto !important;
+  }
+
+  #exceptionTable th{
+    font-size:7pt !important;
+    font-weight:700 !important;
+  }
+
+  #exceptionTable th:nth-child(1),
+  #exceptionTable td:nth-child(1){width:10% !important}
+
+  #exceptionTable th:nth-child(2),
+  #exceptionTable td:nth-child(2){width:10% !important}
+
+  #exceptionTable th:nth-child(3),
+  #exceptionTable td:nth-child(3){width:13% !important}
+
+  #exceptionTable th:nth-child(4),
+  #exceptionTable td:nth-child(4){width:8% !important;text-align:center !important}
+
+  #exceptionTable th:nth-child(5),
+  #exceptionTable td:nth-child(5){width:8% !important;text-align:center !important}
+
+  #exceptionTable th:nth-child(6),
+  #exceptionTable td:nth-child(6){width:8% !important;text-align:center !important}
+
+  #exceptionTable th:nth-child(7),
+  #exceptionTable td:nth-child(7){width:43% !important}
+
+  .reasonInput{
+    border:0 !important;
+    background:transparent !important;
+    padding:0 !important;
+    margin:0 !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:auto !important;
+    font-size:7pt !important;
+    color:#111 !important;
+    box-shadow:none !important;
+  }
+
+  .platoonDivider td{
+    font-size:7.3pt !important;
+    font-weight:700 !important;
+    padding:1mm 1.2mm !important;
+  }
 }
 
 </style>
