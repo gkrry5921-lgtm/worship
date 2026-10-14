@@ -536,6 +536,57 @@ tr:hover td{background:#fbfdff}
   }
 }
 
+
+.mobileMeetingHero{display:none}
+@media (max-width:720px){
+  #saveJsonBtn,
+  #restoreJson,
+  label[for="restoreJson"],
+  #printBtn{
+    display:none !important;
+  }
+
+  .mobileMeetingHero{
+    display:block !important;
+    background:#ffffff;
+    border:1px solid #dde5ec;
+    border-radius:12px;
+    padding:14px 12px;
+    margin:0 0 10px;
+    text-align:center;
+    box-shadow:0 1px 4px rgba(0,0,0,.04);
+  }
+  .mobileMeetingTitle{
+    font-size:19px;
+    line-height:1.3;
+    font-weight:900;
+    color:#17365f;
+    letter-spacing:-0.3px;
+  }
+  .mobileMeetingDate{
+    margin-top:4px;
+    font-size:13px;
+    font-weight:700;
+    color:#5d6977;
+  }
+  .mobileMeetingSlogan{
+    margin-top:8px;
+    font-size:14px;
+    font-weight:900;
+    color:#075c45;
+    letter-spacing:.2px;
+  }
+
+  /* Avoid showing the same long summary heading twice on mobile */
+  .summaryHead h2{
+    font-size:0 !important;
+  }
+  .summaryHead h2::after{
+    content:"출결 현황";
+    font-size:15px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -561,7 +612,14 @@ tr:hover td{background:#fbfdff}
   </div>
 
   <div class="panel summary">
-    <div class="summaryHead">
+    
+<div id="mobileMeetingHero" class="mobileMeetingHero">
+  <div id="mobileMeetingTitle" class="mobileMeetingTitle"></div>
+  <div id="mobileMeetingDate" class="mobileMeetingDate"></div>
+  <div class="mobileMeetingSlogan">거룩! 겸손! 연합!</div>
+</div>
+
+<div class="summaryHead">
       <h2 id="summaryTitle">전체 출결 현황</h2>
       <span class="badge">거룩! 겸손! 연합</span>
     </div>
@@ -622,7 +680,7 @@ const removedDateFields = {
   '8월 비전모임':'2026-08-25',
   '9월 훈련모임':'2026-09-15',
   '9월 비전모임':'2026-09-22',
-  '10월 훈련모임':'2026-10-13'
+  '10월 훈련모임':'2026-10-23'
 };
 let db = loadSaved() || JSON.parse(JSON.stringify(ORIGINAL_DATA));
 let current = "10월 훈련모임";
@@ -874,7 +932,31 @@ function renderAnnual(){
   document.querySelector('.reportPanel .sectionHead span').textContent='검색된 인원의 모임별 O/X와 사유';
 }
 
+
+function updateMobileMeetingHero(){
+  const hero=document.getElementById('mobileMeetingHero');
+  const t=document.getElementById('mobileMeetingTitle');
+  const d=document.getElementById('mobileMeetingDate');
+  if(!hero||!t||!d) return;
+
+  if(current==='__ALL__'){
+    t.textContent='전체 연간 출결 통계';
+    d.textContent='';
+    return;
+  }
+
+  t.textContent=`${current} 출결 현황`;
+  const ds=meetingDates[current];
+  if(ds){
+    const parts=ds.split('-');
+    d.textContent=`(${Number(parts[1])}월 ${Number(parts[2])}일)`;
+  }else{
+    d.textContent='';
+  }
+}
+
 function render(){
+  updateMobileMeetingHero();
   // 기본 KPI 라벨 복원
   const labels=document.querySelectorAll('.kpi .label');
   labels[0].textContent='총원'; labels[1].textContent='결석자';
