@@ -170,6 +170,268 @@ body{overflow-x:auto;}
     box-sizing:border-box !important;
   }
 }
+
+
+/* ===== MOBILE V1 - CSS ONLY / PC LOGIC UNTOUCHED ===== */
+@media (max-width:760px){
+
+  /* Release the desktop minimum width only on mobile */
+  html,
+  body{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    overflow-x:hidden !important;
+  }
+
+  body{
+    background:#f5f7f9 !important;
+  }
+
+  .app,
+  .pageShell{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:10px !important;
+  }
+
+  /* Header */
+  .header{
+    display:flex !important;
+    align-items:flex-start !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+    margin-bottom:10px !important;
+  }
+
+  .title h1{
+    font-size:21px !important;
+    line-height:1.25 !important;
+    letter-spacing:-.5px !important;
+  }
+
+  .title p{
+    margin-top:3px !important;
+    font-size:11px !important;
+  }
+
+  .logo{
+    font-size:12px !important;
+    line-height:1 !important;
+    flex:0 0 auto !important;
+  }
+
+  /* Controls */
+  .controls{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:8px !important;
+    padding:10px !important;
+    margin-bottom:10px !important;
+  }
+
+  #meetingSelect{
+    grid-column:1 / -1 !important;
+    width:100% !important;
+  }
+
+  #platoonFilter,
+  #unitFilter{
+    width:100% !important;
+    min-width:0 !important;
+  }
+
+  #search{
+    grid-column:1 / -1 !important;
+    width:100% !important;
+  }
+
+  .controls select,
+  .controls input{
+    height:42px !important;
+    font-size:14px !important;
+  }
+
+  /* Mobile: hide admin/print controls only */
+  #resetBtn,
+  #saveJsonBtn,
+  .controls label.btn,
+  .controls button[onclick*="print"]{
+    display:none !important;
+  }
+
+  .spacer{
+    display:none !important;
+  }
+
+  /* Summary */
+  .summary{
+    padding:10px !important;
+    margin-bottom:10px !important;
+  }
+
+  .summaryHead{
+    align-items:flex-start !important;
+    gap:8px !important;
+    margin-bottom:8px !important;
+  }
+
+  .summaryHead h2{
+    font-size:15px !important;
+    line-height:1.35 !important;
+  }
+
+  .badge{
+    font-size:9px !important;
+    padding:4px 6px !important;
+    flex:0 0 auto !important;
+  }
+
+  .kpis{
+    grid-template-columns:1fr 1fr !important;
+    gap:8px !important;
+  }
+
+  .kpi{
+    min-height:70px !important;
+    padding:9px 6px !important;
+  }
+
+  .kpi:first-child{
+    grid-column:1 / -1 !important;
+  }
+
+  .kpi .label{
+    font-size:11px !important;
+  }
+
+  .kpi .num{
+    font-size:25px !important;
+  }
+
+  .kpi .unit{
+    font-size:12px !important;
+  }
+
+  /* Two PC panels become vertical on mobile.
+     The TABLE ITSELF stays a table, never cards. */
+  .grid{
+    display:block !important;
+    width:100% !important;
+  }
+
+  .leftPanel,
+  .reportPanel{
+    width:100% !important;
+    min-width:0 !important;
+    position:static !important;
+    margin-bottom:10px !important;
+  }
+
+  .sectionHead{
+    padding:10px 11px !important;
+  }
+
+  .sectionHead h3{
+    font-size:14px !important;
+  }
+
+  .sectionHead span{
+    font-size:9px !important;
+  }
+
+  .tableWrap{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    max-height:520px !important;
+    overflow:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+  }
+
+  /* Preserve PC table structure */
+  #attendanceTable,
+  #attendanceTable.annualTable{
+    display:table !important;
+    width:100% !important;
+    min-width:780px !important;
+    table-layout:auto !important;
+  }
+
+  #exceptionTable{
+    display:table !important;
+    width:100% !important;
+    min-width:690px !important;
+    table-layout:auto !important;
+  }
+
+  #attendanceTable thead,
+  #exceptionTable thead{
+    display:table-header-group !important;
+  }
+
+  #attendanceTable tbody,
+  #exceptionTable tbody{
+    display:table-row-group !important;
+  }
+
+  #attendanceTable tr,
+  #exceptionTable tr{
+    display:table-row !important;
+  }
+
+  #attendanceTable th,
+  #attendanceTable td,
+  #exceptionTable th,
+  #exceptionTable td{
+    display:table-cell !important;
+    grid-column:auto !important;
+    margin:0 !important;
+    border-radius:0 !important;
+    padding:7px 6px !important;
+    font-size:11px !important;
+    line-height:1.2 !important;
+    vertical-align:middle !important;
+  }
+
+  #attendanceTable th:nth-child(5),
+  #attendanceTable th:nth-child(6),
+  #attendanceTable th:nth-child(7),
+  #attendanceTable td:nth-child(5),
+  #attendanceTable td:nth-child(6),
+  #attendanceTable td:nth-child(7),
+  #exceptionTable th:nth-child(4),
+  #exceptionTable th:nth-child(5),
+  #exceptionTable th:nth-child(6),
+  #exceptionTable td:nth-child(4),
+  #exceptionTable td:nth-child(5),
+  #exceptionTable td:nth-child(6){
+    text-align:center !important;
+  }
+
+  #attendanceTable td::before,
+  #exceptionTable td::before{
+    content:none !important;
+  }
+
+  .reasonInput{
+    min-width:140px !important;
+    height:32px !important;
+    font-size:11px !important;
+  }
+
+  .platoonDivider{
+    display:table-row !important;
+  }
+
+  .platoonDivider td{
+    display:table-cell !important;
+    border-radius:0 !important;
+  }
+}
+
 </style>
 </head>
 <body>
