@@ -772,6 +772,30 @@ body{overflow-x:auto;}
   }
 }
 
+
+/* ===== READ ONLY MODE ===== */
+.status,
+.statusCell,
+#attendanceTable td[data-field],
+#exceptionTable td[data-field]{
+  cursor:default !important;
+}
+
+.reasonInput{
+  background:#f6f7f9 !important;
+  color:#444 !important;
+  cursor:default !important;
+  pointer-events:none !important;
+}
+
+#resetBtn,
+#restoreJsonBtn,
+#saveJsonBtn,
+.controls label.btn,
+input[type="file"]{
+  display:none !important;
+}
+
 </style>
 </head>
 <body>
@@ -1305,5 +1329,55 @@ function render(){
 setup();render();
 </script>
 <!-- NCMN BUILD: annual-search-v2-20261014 -->
+
+<script id="readonlyGuard">
+(function(){
+  const tableSelector = '#attendanceTable, #exceptionTable';
+
+  function lockReasonInputs(root=document){
+    root.querySelectorAll('.reasonInput, #attendanceTable input, #exceptionTable input').forEach(el=>{
+      el.readOnly = true;
+      el.disabled = false; // keep readable/selectable styling if browser allows
+      el.setAttribute('aria-readonly','true');
+      el.tabIndex = -1;
+    });
+  }
+
+  function isEditTarget(target){
+    if (!target) return false;
+    return !!(
+      target.closest('.status') ||
+      target.closest('.statusCell') ||
+      target.closest('#attendanceTable td[data-field]') ||
+      target.closest('#exceptionTable td[data-field]') ||
+      target.closest('.reasonInput')
+    );
+  }
+
+  // Block click/double-click on editable attendance cells before app handlers receive them.
+  ['click','dblclick','mousedown','touchstart','keydown','input','change'].forEach(evtName=>{
+    document.addEventListener(evtName, function(e){
+      if (isEditTarget(e.target)) {
+        if (evtName === 'keydown' && ['Tab','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        e.stopPropagation();
+      }
+    }, true);
+  });
+
+  // Keep dynamically re-rendered reason inputs read-only.
+  const observer = new MutationObserver(()=>lockReasonInputs());
+  observer.observe(document.documentElement, {subtree:true, childList:true});
+  lockReasonInputs();
+
+  // Remove/hide modifying controls if present.
+  ['resetBtn','restoreJsonBtn','saveJsonBtn'].forEach(id=>{
+    const el = document.getElementById(id);
+    if (el) el.style.display='none';
+  });
+})();
+</script>
+
 </body>
 </html>
