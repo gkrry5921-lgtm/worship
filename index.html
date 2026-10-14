@@ -118,10 +118,63 @@ body{overflow-x:auto;}
     gap:14px !important;
   }
 }
+
+/* ===== FINAL PAGE WIDTH ALIGNMENT ===== */
+@media (min-width:761px){
+  html,body{
+    width:100% !important;
+    min-width:1180px !important;
+    margin:0 !important;
+  }
+
+  .app{
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .pageShell{
+    width:calc(100% - 48px) !important;
+    max-width:1400px !important;
+    min-width:1180px !important;
+    margin:0 auto !important;
+    padding:20px 0 28px !important;
+    box-sizing:border-box !important;
+  }
+
+  .pageShell > .header,
+  .pageShell > .controls,
+  .pageShell > .summary,
+  .pageShell > .grid{
+    width:100% !important;
+    max-width:none !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  .pageShell > .grid{
+    display:grid !important;
+    grid-template-columns:minmax(0,1.55fr) minmax(430px,1fr) !important;
+    gap:14px !important;
+    align-items:start !important;
+  }
+
+  .pageShell .leftPanel,
+  .pageShell .reportPanel{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    box-sizing:border-box !important;
+  }
+}
 </style>
 </head>
 <body>
 <div class="app">
+  <div class="pageShell">
   <div class="header">
     <div class="title">
       <h1>NCMN 예배팀 출결관리</h1>
@@ -197,6 +250,7 @@ body{overflow-x:auto;}
         </table>
       </div>
     </div>
+  </div>
   </div>
 </div>
 
