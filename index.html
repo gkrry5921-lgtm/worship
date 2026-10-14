@@ -432,6 +432,124 @@ body{overflow-x:auto;}
   }
 }
 
+
+/* ===== MOBILE TABLE FIT - NO HORIZONTAL SCROLL ===== */
+@media (max-width:760px){
+
+  .leftPanel .tableWrap,
+  .reportPanel .tableWrap,
+  .tableWrap{
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  #attendanceTable,
+  #attendanceTable.annualTable,
+  #exceptionTable{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    table-layout:fixed !important;
+    border-collapse:collapse !important;
+  }
+
+  #attendanceTable th,
+  #attendanceTable td,
+  #exceptionTable th,
+  #exceptionTable td{
+    padding:5px 2px !important;
+    font-size:9px !important;
+    line-height:1.15 !important;
+    white-space:normal !important;
+    word-break:keep-all !important;
+    overflow-wrap:anywhere !important;
+  }
+
+  #attendanceTable th{
+    font-size:8.5px !important;
+  }
+
+  #exceptionTable th{
+    font-size:8.5px !important;
+  }
+
+  /* 전체 명단: 소대 / 분대 / 직책 / 이름 / 중보 / 예배 / 강의 / 사유 */
+  #attendanceTable th:nth-child(1),
+  #attendanceTable td:nth-child(1){width:9% !important}
+
+  #attendanceTable th:nth-child(2),
+  #attendanceTable td:nth-child(2){width:9% !important}
+
+  #attendanceTable th:nth-child(3),
+  #attendanceTable td:nth-child(3){width:12% !important}
+
+  #attendanceTable th:nth-child(4),
+  #attendanceTable td:nth-child(4){width:12% !important}
+
+  #attendanceTable th:nth-child(5),
+  #attendanceTable td:nth-child(5){width:8% !important}
+
+  #attendanceTable th:nth-child(6),
+  #attendanceTable td:nth-child(6){width:8% !important}
+
+  #attendanceTable th:nth-child(7),
+  #attendanceTable td:nth-child(7){width:8% !important}
+
+  #attendanceTable th:nth-child(8),
+  #attendanceTable td:nth-child(8){width:34% !important}
+
+  /* 출결 특이사항: 소대 / 분대 / 이름 / 중보 / 예배 / 강의 / 사유 */
+  #exceptionTable th:nth-child(1),
+  #exceptionTable td:nth-child(1){width:10% !important}
+
+  #exceptionTable th:nth-child(2),
+  #exceptionTable td:nth-child(2){width:10% !important}
+
+  #exceptionTable th:nth-child(3),
+  #exceptionTable td:nth-child(3){width:13% !important}
+
+  #exceptionTable th:nth-child(4),
+  #exceptionTable td:nth-child(4){width:8% !important}
+
+  #exceptionTable th:nth-child(5),
+  #exceptionTable td:nth-child(5){width:8% !important}
+
+  #exceptionTable th:nth-child(6),
+  #exceptionTable td:nth-child(6){width:8% !important}
+
+  #exceptionTable th:nth-child(7),
+  #exceptionTable td:nth-child(7){width:43% !important}
+
+  #attendanceTable td:nth-child(5),
+  #attendanceTable td:nth-child(6),
+  #attendanceTable td:nth-child(7),
+  #exceptionTable td:nth-child(4),
+  #exceptionTable td:nth-child(5),
+  #exceptionTable td:nth-child(6){
+    text-align:center !important;
+    font-weight:800 !important;
+  }
+
+  .reasonInput{
+    width:100% !important;
+    min-width:0 !important;
+    height:30px !important;
+    padding:3px 4px !important;
+    font-size:9px !important;
+  }
+
+  .sectionHead span{
+    display:none !important;
+  }
+
+  .platoonDivider td{
+    font-size:10px !important;
+    padding:6px 5px !important;
+  }
+}
+
 </style>
 </head>
 <body>
