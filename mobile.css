@@ -1,0 +1,133 @@
+
+/* Mobile-only styling. PC layout/JS are untouched. */
+
+html, body{
+  min-width:0 !important;
+  width:100% !important;
+  overflow-x:hidden !important;
+}
+
+body{
+  background:#f5f7fa;
+}
+
+.app{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding:10px !important;
+}
+
+.header{
+  margin-bottom:10px !important;
+}
+
+.title h1{
+  font-size:22px !important;
+  line-height:1.25 !important;
+}
+
+.controls{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:8px !important;
+  padding:10px !important;
+}
+
+#meetingSelect,
+#search{
+  grid-column:1 / -1 !important;
+  width:100% !important;
+}
+
+#platoonFilter,
+#unitFilter{
+  width:100% !important;
+  min-width:0 !important;
+}
+
+.spacer{
+  display:none !important;
+}
+
+.kpis{
+  grid-template-columns:1fr 1fr !important;
+  gap:8px !important;
+}
+
+.kpi:first-child{
+  grid-column:1 / -1 !important;
+}
+
+.grid{
+  display:block !important;
+}
+
+.leftPanel,
+.reportPanel{
+  width:100% !important;
+  position:static !important;
+  margin-bottom:10px !important;
+}
+
+/* Tables stay tables — never cards */
+.leftPanel .tableWrap,
+.reportPanel .tableWrap{
+  width:100% !important;
+  overflow-x:auto !important;
+  max-height:560px !important;
+  -webkit-overflow-scrolling:touch;
+}
+
+#attendanceTable{
+  display:table !important;
+  min-width:800px !important;
+  width:100% !important;
+}
+
+#exceptionTable{
+  display:table !important;
+  min-width:720px !important;
+  width:100% !important;
+}
+
+#attendanceTable thead,
+#exceptionTable thead{
+  display:table-header-group !important;
+}
+
+#attendanceTable tbody,
+#exceptionTable tbody{
+  display:table-row-group !important;
+}
+
+#attendanceTable tr,
+#exceptionTable tr{
+  display:table-row !important;
+}
+
+#attendanceTable th,
+#attendanceTable td,
+#exceptionTable th,
+#exceptionTable td{
+  display:table-cell !important;
+  grid-column:auto !important;
+}
+
+#attendanceTable td::before,
+#exceptionTable td::before{
+  content:none !important;
+}
+
+.reasonInput{
+  min-width:150px !important;
+}
+
+.platoonDivider{
+  display:table-row !important;
+}
+
+.platoonDivider td{
+  display:table-cell !important;
+}
