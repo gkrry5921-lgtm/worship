@@ -633,6 +633,145 @@ body{overflow-x:auto;}
   }
 }
 
+
+/* ===== MOBILE COMPACT TABLE V3 ===== */
+@media screen and (max-width:760px){
+
+  .pageShell{
+    padding:6px !important;
+  }
+
+  .leftPanel,
+  .reportPanel{
+    border-radius:8px !important;
+  }
+
+  .sectionHead{
+    padding:7px 8px !important;
+  }
+
+  .sectionHead h3{
+    font-size:12px !important;
+    line-height:1.2 !important;
+  }
+
+  .tableWrap{
+    max-height:480px !important;
+  }
+
+  #attendanceTable,
+  #attendanceTable.annualTable,
+  #exceptionTable{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    table-layout:fixed !important;
+  }
+
+  #attendanceTable th,
+  #attendanceTable td,
+  #exceptionTable th,
+  #exceptionTable td{
+    padding:3px 1px !important;
+    height:25px !important;
+    min-height:25px !important;
+    font-size:7.5px !important;
+    line-height:1.05 !important;
+    text-align:center !important;
+    white-space:normal !important;
+    word-break:keep-all !important;
+    overflow-wrap:anywhere !important;
+    vertical-align:middle !important;
+  }
+
+  #attendanceTable th,
+  #exceptionTable th{
+    height:28px !important;
+    font-size:7px !important;
+    font-weight:800 !important;
+  }
+
+  /* 전체 명단 */
+  #attendanceTable th:nth-child(1),
+  #attendanceTable td:nth-child(1){width:8% !important}
+
+  #attendanceTable th:nth-child(2),
+  #attendanceTable td:nth-child(2){width:8% !important}
+
+  #attendanceTable th:nth-child(3),
+  #attendanceTable td:nth-child(3){width:10% !important}
+
+  #attendanceTable th:nth-child(4),
+  #attendanceTable td:nth-child(4){width:11% !important}
+
+  #attendanceTable th:nth-child(5),
+  #attendanceTable td:nth-child(5){width:7% !important}
+
+  #attendanceTable th:nth-child(6),
+  #attendanceTable td:nth-child(6){width:7% !important}
+
+  #attendanceTable th:nth-child(7),
+  #attendanceTable td:nth-child(7){width:7% !important}
+
+  #attendanceTable th:nth-child(8),
+  #attendanceTable td:nth-child(8){width:42% !important}
+
+  /* 특이사항 */
+  #exceptionTable th:nth-child(1),
+  #exceptionTable td:nth-child(1){width:9% !important}
+
+  #exceptionTable th:nth-child(2),
+  #exceptionTable td:nth-child(2){width:9% !important}
+
+  #exceptionTable th:nth-child(3),
+  #exceptionTable td:nth-child(3){width:12% !important}
+
+  #exceptionTable th:nth-child(4),
+  #exceptionTable td:nth-child(4){width:7% !important}
+
+  #exceptionTable th:nth-child(5),
+  #exceptionTable td:nth-child(5){width:7% !important}
+
+  #exceptionTable th:nth-child(6),
+  #exceptionTable td:nth-child(6){width:7% !important}
+
+  #exceptionTable th:nth-child(7),
+  #exceptionTable td:nth-child(7){
+    width:49% !important;
+    text-align:left !important;
+    padding-left:3px !important;
+  }
+
+  #attendanceTable td:nth-child(8){
+    text-align:left !important;
+    padding-left:2px !important;
+  }
+
+  .reasonInput{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    height:23px !important;
+    min-height:23px !important;
+    padding:1px 3px !important;
+    font-size:7.5px !important;
+    line-height:1 !important;
+    border-radius:3px !important;
+  }
+
+  .platoonDivider td{
+    height:24px !important;
+    padding:3px 4px !important;
+    font-size:8px !important;
+    text-align:left !important;
+  }
+
+  .status{
+    font-size:8px !important;
+    font-weight:900 !important;
+  }
+}
+
 </style>
 </head>
 <body>
