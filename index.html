@@ -1035,6 +1035,39 @@ input[type="file"]{
   }
 }
 
+
+/* ===== ANNUAL ATTENDANCE TYPE ===== */
+.annualType{
+  font-weight:800;
+  text-align:center;
+}
+
+@media screen and (max-width:760px){
+  #attendanceTable.annualTable th,
+  #attendanceTable.annualTable td{
+    font-size:7.2px !important;
+    padding:3px 1px !important;
+    text-align:center !important;
+  }
+  #attendanceTable.annualTable th:nth-child(1),
+  #attendanceTable.annualTable td:nth-child(1){width:9% !important}
+  #attendanceTable.annualTable th:nth-child(2),
+  #attendanceTable.annualTable td:nth-child(2){width:9% !important}
+  #attendanceTable.annualTable th:nth-child(3),
+  #attendanceTable.annualTable td:nth-child(3){width:12% !important}
+  #attendanceTable.annualTable th:nth-child(4),
+  #attendanceTable.annualTable td:nth-child(4){width:13% !important}
+  #attendanceTable.annualTable th:nth-child(5),
+  #attendanceTable.annualTable td:nth-child(5){width:15% !important}
+  #attendanceTable.annualTable th:nth-child(6),
+  #attendanceTable.annualTable td:nth-child(6){width:15% !important}
+  #attendanceTable.annualTable th:nth-child(7),
+  #attendanceTable.annualTable td:nth-child(7){width:12% !important}
+  #attendanceTable.annualTable th:nth-child(8),
+  #attendanceTable.annualTable td:nth-child(8){width:15% !important}
+  .annualType{font-size:7px !important;}
+}
+
 </style>
 </head>
 <body>
@@ -1351,7 +1384,8 @@ function uniquePeopleAnnual(){
       if(!people.has(cleanName)){
         people.set(cleanName,{
           name:m.name,unit:m.unit,role:m.role,platoon:m.platoon,
-          meetings:0,prayer:0,worship:0,lecture:0,records:[]
+          meetings:0,prayer:0,worship:0,lecture:0,
+          full:0,partial:0,absent:0,total:0,records:[]
         });
       }
 
@@ -1360,14 +1394,22 @@ function uniquePeopleAnnual(){
       if(!p.unit && m.unit) p.unit=m.unit;
       if(!p.role && m.role) p.role=m.role;
 
-      const attended=m.prayer||m.worship||m.lecture;
-      if(attended) p.meetings++;
+      const attendedCount=[m.prayer,m.worship,m.lecture].filter(Boolean).length;
+      const attendanceType=attendedCount===3 ? '전체 참석' : (attendedCount===0 ? '불참' : '부분 참석');
+
+      p.total++;
+      if(attendanceType==='전체 참석') p.full++;
+      else if(attendanceType==='부분 참석') p.partial++;
+      else p.absent++;
+
+      if(attendedCount>0) p.meetings++;
       if(m.prayer) p.prayer++;
       if(m.worship) p.worship++;
       if(m.lecture) p.lecture++;
 
       p.records.push({
         meeting,
+        attendanceType,
         prayer:m.prayer?'O':'X',
         worship:m.worship?'O':'X',
         lecture:m.lecture?'O':'X',
@@ -1399,21 +1441,21 @@ function renderAnnual(){
   const labels=document.querySelectorAll('.kpi .label');
   labels[0].textContent='총 모임';
   labels[1].textContent='검색 인원';
-  labels[2].textContent='중보기도';
-  labels[3].textContent='예배';
-  labels[4].textContent='강의';
+  labels[2].textContent='전체 참석';
+  labels[3].textContent='부분 참석';
+  labels[4].textContent='불참';
 
   document.getElementById('totalNum').textContent=meetingCount;
   document.getElementById('absentNum').textContent=filtered.length;
-  document.getElementById('prayerNum').textContent=filtered.reduce((s,p)=>s+p.prayer,0);
-  document.getElementById('worshipNum').textContent=filtered.reduce((s,p)=>s+p.worship,0);
-  document.getElementById('lectureNum').textContent=filtered.reduce((s,p)=>s+p.lecture,0);
+  document.getElementById('prayerNum').textContent=filtered.reduce((s,p)=>s+p.full,0);
+  document.getElementById('worshipNum').textContent=filtered.reduce((s,p)=>s+p.partial,0);
+  document.getElementById('lectureNum').textContent=filtered.reduce((s,p)=>s+p.absent,0);
 
   const table=document.getElementById('attendanceTable');
   table.classList.add('annualTable');
   table.querySelector('thead').innerHTML=`<tr>
     <th>소대</th><th>분대</th><th>직책</th><th>이름</th>
-    <th>출석 모임</th><th>중보</th><th>예배</th><th>강의</th>
+    <th>전체 참석</th><th>부분 참석</th><th>불참</th><th>총 모임</th>
   </tr>`;
 
   const tbody=table.querySelector('tbody');
@@ -1422,15 +1464,15 @@ function renderAnnual(){
     <td class="unit">${esc(p.unit)}</td>
     <td class="role">${esc(p.role)}</td>
     <td class="name">${esc(p.name)}</td>
-    <td class="annualCount">${p.meetings} / ${meetingCount}</td>
-    <td>${p.prayer}</td>
-    <td>${p.worship}</td>
-    <td>${p.lecture}</td>
+    <td class="annualCount">${p.full}</td>
+    <td class="annualCount">${p.partial}</td>
+    <td class="annualCount">${p.absent}</td>
+    <td class="annualCount">${p.total}</td>
   </tr>`).join('') : `<tr><td colspan="8" class="empty">검색 결과가 없습니다.</td></tr>`;
 
   const et=document.getElementById('exceptionTable');
   et.querySelector('thead').innerHTML=`<tr>
-    <th>모임</th><th>이름</th><th>중보</th><th>예배</th><th>강의</th><th>사유</th>
+    <th>모임</th><th>이름</th><th>출결 구분</th><th>중보</th><th>예배</th><th>강의</th><th>사유</th>
   </tr>`;
 
   const details=filtered.flatMap(p=>p.records.map(r=>({...r,person:p.name})));
@@ -1438,16 +1480,17 @@ function renderAnnual(){
   eb.innerHTML=details.length ? details.map(r=>`<tr class="exception">
     <td>${esc(r.meeting)}</td>
     <td class="name">${esc(r.person)}</td>
+    <td class="annualType">${esc(r.attendanceType)}</td>
     <td class="status ${r.prayer==='O'?'o':'xpartial'}">${esc(r.prayer)}</td>
     <td class="status ${r.worship==='O'?'o':'xpartial'}">${esc(r.worship)}</td>
     <td class="status ${r.lecture==='O'?'o':'xpartial'}">${esc(r.lecture)}</td>
     <td>${esc(r.reason)}</td>
-  </tr>`).join('') : `<tr><td colspan="6" class="empty">연간 상세 기록이 없습니다.</td></tr>`;
+  </tr>`).join('') : `<tr><td colspan="7" class="empty">연간 상세 기록이 없습니다.</td></tr>`;
 
   document.querySelector('.leftPanel .sectionHead h3').textContent='연간 개인별 출석 통계';
-  document.querySelector('.leftPanel .sectionHead span').textContent='이름 검색으로 1년 출석 횟수를 확인할 수 있습니다.';
+  document.querySelector('.leftPanel .sectionHead span').textContent='전체 참석 · 부분 참석 · 불참 횟수를 확인할 수 있습니다.';
   document.querySelector('.reportPanel .sectionHead h3').textContent='연간 모임별 상세';
-  document.querySelector('.reportPanel .sectionHead span').textContent='검색된 인원의 모임별 O/X와 사유';
+  document.querySelector('.reportPanel .sectionHead span').textContent='검색된 인원의 모임별 출결 구분 · O/X · 사유';
 }
 
 
