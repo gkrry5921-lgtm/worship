@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="app-build" content="2026-10-21-v5">
+<meta name="app-build" content="2026-10-21-absent-sheet-v2">
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -1519,9 +1519,7 @@ function render(){
   const DUPLICATE_ADJUSTMENT=1;
   document.getElementById('totalNum').textContent=Math.max(0,all.length-DUPLICATE_ADJUSTMENT);
   document.getElementById('absentNum').textContent=
-    Object.prototype.hasOwnProperty.call(SHEET_ABSENT_COUNTS,current)
-      ? SHEET_ABSENT_COUNTS[current]
-      : Math.max(0,all.filter(isAllX).length-DUPLICATE_ADJUSTMENT);
+    SHEET_ABSENT_COUNTS[current] ?? 0;
   document.getElementById('prayerNum').textContent=Math.max(0,all.filter(r=>r.prayer==='O').length-DUPLICATE_ADJUSTMENT);
   document.getElementById('worshipNum').textContent=Math.max(0,all.filter(r=>r.worship==='O').length-DUPLICATE_ADJUSTMENT);
   document.getElementById('lectureNum').textContent=Math.max(0,all.filter(r=>r.lecture==='O').length-DUPLICATE_ADJUSTMENT);
