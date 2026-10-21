@@ -1181,7 +1181,7 @@ const meetingDates = {
   '10월 훈련모임':'2026-10-13',
   '10월 비전모임':'2026-10-20'
 };
-let db = loadSaved() || JSON.parse(JSON.stringify(ORIGINAL_DATA));
+let db = JSON.parse(JSON.stringify(ORIGINAL_DATA));
 let current = "10월 비전모임";
 
 
@@ -1193,43 +1193,9 @@ function formatDateLabel(ds){
 }
 
 function loadSaved(){
-  function validDb(x){
-    return x && typeof x==='object' && !Array.isArray(x) &&
-      Object.values(x).every(v=>Array.isArray(v));
-  }
-
-  try{
-    const fresh=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');
-    if(validDb(fresh)){
-      // Always start from the newest embedded Excel data.
-      // Existing saved sheets may override matching meetings,
-      // but newly-added meetings must never disappear.
-      const merged=JSON.parse(JSON.stringify(ORIGINAL_DATA));
-      Object.keys(fresh).forEach(k=>{
-        if(Array.isArray(fresh[k]) && Object.prototype.hasOwnProperty.call(ORIGINAL_DATA,k)){
-          merged[k]=fresh[k];
-        }
-      });
-      localStorage.setItem(STORAGE_KEY,JSON.stringify(merged));
-      return merged;
-    }
-
-    const legacy=JSON.parse(localStorage.getItem(LEGACY_STORAGE_KEY)||'null');
-    if(validDb(legacy)){
-      const merged=JSON.parse(JSON.stringify(ORIGINAL_DATA));
-      Object.keys(legacy).forEach(k=>{
-        if(Array.isArray(legacy[k]) && Object.prototype.hasOwnProperty.call(ORIGINAL_DATA,k)){
-          merged[k]=legacy[k];
-        }
-      });
-      localStorage.setItem(STORAGE_KEY,JSON.stringify(merged));
-      return merged;
-    }
-  }catch(e){}
-
   return JSON.parse(JSON.stringify(ORIGINAL_DATA));
 }
-function persist(){localStorage.setItem(STORAGE_KEY,JSON.stringify(db))}
+function persist(){}
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function isImportedHeaderRow(r){
   const unit=String(r?.unit||'').trim();
