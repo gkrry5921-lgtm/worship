@@ -1181,6 +1181,7 @@ const meetingDates = {
   '10월 훈련모임':'2026-10-13',
   '10월 비전모임':'2026-10-20'
 };
+const SHEET_ABSENT_COUNTS = {"1월 비전모임":2,"2월 훈련모임":4,"3월 훈련모임":4,"3월 비전모임":4,"4월 훈련모임":2,"4월 비전모임":4,"5월 훈련모임":8,"5월 비전모임":7,"6월 훈련모임":3,"7월 훈련모임":12,"7월 비전모임":2,"8월 훈련모임":2,"8월 비전모임":5,"9월 훈련모임":9,"9월 비전모임":10,"10월 훈련모임":7,"10월 비전모임":9};
 let db = JSON.parse(JSON.stringify(ORIGINAL_DATA));
 let current = "10월 비전모임";
 
@@ -1517,7 +1518,10 @@ function render(){
 
   const DUPLICATE_ADJUSTMENT=1;
   document.getElementById('totalNum').textContent=Math.max(0,all.length-DUPLICATE_ADJUSTMENT);
-  document.getElementById('absentNum').textContent=Math.max(0,all.filter(isAllX).length-DUPLICATE_ADJUSTMENT);
+  document.getElementById('absentNum').textContent=
+    Object.prototype.hasOwnProperty.call(SHEET_ABSENT_COUNTS,current)
+      ? SHEET_ABSENT_COUNTS[current]
+      : Math.max(0,all.filter(isAllX).length-DUPLICATE_ADJUSTMENT);
   document.getElementById('prayerNum').textContent=Math.max(0,all.filter(r=>r.prayer==='O').length-DUPLICATE_ADJUSTMENT);
   document.getElementById('worshipNum').textContent=Math.max(0,all.filter(r=>r.worship==='O').length-DUPLICATE_ADJUSTMENT);
   document.getElementById('lectureNum').textContent=Math.max(0,all.filter(r=>r.lecture==='O').length-DUPLICATE_ADJUSTMENT);
